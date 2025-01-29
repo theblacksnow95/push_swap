@@ -6,19 +6,11 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 15:14:53 by emurillo          #+#    #+#             */
-/*   Updated: 2025/01/28 16:37:31 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/01/29 12:55:58 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
-
-typedef struct Node
-{
-	int			x;
-	struct Node	*next;
-}				t_node;
+#include "../include/push_swap.h"
 
 void	insert_node(t_node **head, int value)
 {
