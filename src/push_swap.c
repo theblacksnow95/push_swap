@@ -6,7 +6,7 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 14:56:48 by emurillo          #+#    #+#             */
-/*   Updated: 2025/01/30 15:09:06 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/01/31 17:18:58 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,9 @@
 
 int	main(int ac, char **av)
 {
-	if (ac == 2)
+	if (ac >= 2)
 	{
-
-	}
-	else if (ac >= 3)
-	{
-
+		parsing_args(av, ac);
 	}
 	return (0);
 }
