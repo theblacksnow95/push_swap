@@ -55,3 +55,4 @@ dkms.conf
 # vscode
 /.vscode
 .json
+.error_log

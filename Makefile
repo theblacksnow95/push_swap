@@ -18,9 +18,9 @@ OBJ = $(SRC:src/%.c=$(OBJ_DIR)/%.o)
 
 $(OBJ_DIR)/%.o: src/%.c
 	@mkdir -p $(OBJ_DIR)
-	@$(CC) $(C_FLAGS) -c $< -o $@ >/dev/null 2>&1 && \
-	echo "$(GREEN)Compiled: $< [OK]$(RESET)" || \
-	(echo "$(RED)Error compiling: $< [KO]$(RESET)" && exit 1)
+	@$(CC) $(C_FLAGS) -c $< -o $@ 2> .error_log && \
+	(echo "$(GREEN)Compiled: $< [OK]$(RESET)") || \
+	(echo "$(RED)Error compiling: $< [KO]$(RESET)" && cat .error_log && rm -f .error_log && exit 1)
 
 TARGET = $(BIN_DIR)/push_test
 
@@ -29,15 +29,16 @@ all: $(TARGET)
 $(TARGET): $(OBJ) $(LIBFT_DIR)/$(LIBFT_LIB)
 	@echo "$(YELLOW)Buiding target and objects...$(RESET)"
 	@mkdir -p $(BIN_DIR)
-	@$(CC) $(C_FLAGS) $(OBJ) -o $(TARGET) $(L_FLAGS) >/dev/null 2>&1 && \
-	echo "Binary: $(GREEN)[OK]$(RESET)" || \
-	(echo "Binary: $(RED)[KO]$(RESET)" && exit 1)
+	@$(CC) $(C_FLAGS) $(OBJ) -o $(TARGET) $(L_FLAGS) 2> .error_log && \
+	(echo "Binary: $(GREEN)[OK]$(RESET)") || \
+	(echo "Binary: $(RED)[KO]$(RESET)" && cat .error_log && rm -f .error_log && exit 1)
 
 $(LIBFT_DIR)/$(LIBFT_LIB):
 	@echo "$(YELLOW)Building libft library...$(RESET)"
-	@$(MAKE) bonus -C $(LIBFT_DIR) >/dev/null 2>&1 && \
-	echo "Libft: $(GREEN)[OK]$(RESET)" || \
-	(echo "Libft: $(RED)[KO]$(RESET)" && exit 1)
+	@$(MAKE) bonus -C $(LIBFT_DIR) 2> .error_log && \
+	(echo "Libft: $(GREEN)[OK]$(RESET)") || \
+	(echo "Libft: $(RED)[KO]$(RESET)" && cat .error_log && rm -f .error_log && exit 1)
+
 clean:
 	rm -f $(OBJ)
 	@$(MAKE) -C $(LIBFT_DIR) clean >/dev/null 2>&1

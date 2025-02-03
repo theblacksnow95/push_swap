@@ -6,7 +6,7 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 15:07:37 by emurillo          #+#    #+#             */
-/*   Updated: 2025/02/03 14:04:46 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/02/03 17:40:19 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	parse_array(char *arg, t_node **list)
 	{
 		while (*arg == ' ')
 			arg++;
-		if (*arg == '\0')
+		if (*arg == '\0' || !(*arg >= '0' && *arg <= '9'))
 			break ;
 		num = ft_atoi(arg);
 		end_insert(list, num);
@@ -38,6 +38,7 @@ void	print_nodes(t_node *curr)
 		curr = curr->next;
 	}
 }
+
 
 int	parsing_args(char **av, int ac)
 {
