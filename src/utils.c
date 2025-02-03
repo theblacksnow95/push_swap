@@ -6,13 +6,26 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 15:13:40 by emurillo          #+#    #+#             */
-/*   Updated: 2025/01/31 15:14:15 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/02/03 11:56:33 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	insert_node(t_node **root, int value)
+void	start_insert(t_node **root, int value)
+{
+	t_node	*new_node;
+
+	new_node = malloc(sizeof(t_node));
+	if (!new_node)
+		return ;
+	new_node->x = value;
+	new_node->next = *root;
+
+	root = &new_node;
+}
+
+void	end_insert(t_node **root, int value)
 {
 	t_node	*new_node;
 	t_node	*curr;
