@@ -6,7 +6,7 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 16:17:03 by emurillo          #+#    #+#             */
-/*   Updated: 2025/02/06 15:42:30 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/02/07 15:21:58 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 long	ft_atol(char *str)
 {
-	long long int	num;
-	int			sign;
+	long	num;
+	int		sign;
 
 	sign = 1;
 	num = 0;
-	while (*str == ' ' || *str == '\t' || *str == '\n' ||*str == '\v')
+	while (*str == ' ' || *str == '\t' || *str == '\n' || *str == '\v')
 		str++;
 	if (*str == '-' || *str == '+')
 	{
-		if(*str == '-')
+		if (*str == '-')
 			sign = sign * -1;
 		str++;
 	}
