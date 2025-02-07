@@ -6,7 +6,7 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 15:07:37 by emurillo          #+#    #+#             */
-/*   Updated: 2025/02/04 14:00:33 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/02/06 16:13:19 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	parse_array(char *arg, t_node **list)
 {
-	int	num;
+	long	num;
 
 	num = 0;
 	while (*arg)
@@ -23,7 +23,7 @@ void	parse_array(char *arg, t_node **list)
 			arg++;
 		if (*arg == '\0' || !(*arg >= '0' && *arg <= '9'))
 			break ;
-		num = ft_atoi(arg);
+		num = ft_atol(arg);
 		end_insert(list, num);
 		while (*arg && *arg != ' ')
 			arg++;
@@ -39,12 +39,23 @@ void	print_nodes(t_node *curr)
 	}
 }
 
+int	max_check(long num, t_node *list)
+{
+	if (num > INT_MAX || num < INT_MIN)
+	{
+		ft_printf("Error.\n");
+		deallocate(&list);
+		exit(EXIT_FAILURE);
+	}
+	return (0);
+}
 
 int	parsing_args(char **av, int ac)
 {
 	t_node	*list ;
 	t_node	*curr;
 	int		i;
+	long	num;
 	char	*arg;
 
 	list = NULL;
@@ -53,7 +64,9 @@ int	parsing_args(char **av, int ac)
 		i = 1;
 		while (i < ac)
 		{
-			end_insert(&list, ft_atoi(av[i]));
+			num = ft_atol(av[i]);
+			max_check(num, list);
+			end_insert(&list, ft_atol(av[i]));
 			i++;
 		}
 	}

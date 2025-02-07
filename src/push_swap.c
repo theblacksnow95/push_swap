@@ -6,7 +6,7 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 14:56:48 by emurillo          #+#    #+#             */
-/*   Updated: 2025/02/04 13:59:48 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/02/06 16:16:23 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,10 @@ int	num_check(char *av)
 		while (av[i])
 		{
 			if (!(av[i] <= '0' && av[i] >= '9'))
+			{
+				ft_printf("Error.\n");
 				return (1);
+			}
 			i++;
 		}
 	}
@@ -37,25 +40,34 @@ int	num_check(char *av)
 int	check_args(int ac, char **av)
 {
 	int	i;
-	int	j;
 
+	i = 0;
+	if (ac == 2)
+	{
+		while (av[1][i])
+		{
+			num_check(av[1]);
+			i++;
+		}
+	}
 	i = 1;
 	while (i < ac)
 	{
-		j = 0;
+		num_check(av[i]);
+		/* j = 0;
 		if (av[i][j] == '-' || av[i][j] == '+')
 			j++;
 		while (av[i][j])
 		{
 			if (!(av[i][j] >= '0' && av[i][j] <= '9'))
 			{
-				ft_printf("Not numeric\n");
+				ft_printf("Error\n");
 				return (1);
 			}
 			j++;
 		}
 		if (j == 1 && (av[i][0] == '-' || av[i][0] == '+'))
-			return (1);
+			return (1); */
 		i++;
 	}
 	return (0);
