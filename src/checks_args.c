@@ -6,33 +6,34 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 11:57:16 by emurillo          #+#    #+#             */
-/*   Updated: 2025/02/07 14:51:41 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/02/10 18:10:16 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "../include/push_swap.h"
 
-int	valid_num(char *str)
+int	error_syntax(char *str)
 {
-	int	i;
-
-	i = 0;
-	if (str[i] == '-' || str[i] == '+')
-		i++;
-	if (!str[i])
-		return (0);
-	while (str[i])
+	if (!(*str == '-' \
+				|| *str == '+' \
+				|| (*str >= '0' && *str <= '9')))
+		return (1);
+	if ((*str == '-' || *str == '+') \
+		&& !(str[1] >= '0' && str[1] <= '9'))
+		return (1);
+	while (*++str)
 	{
-		if (str[i] < '0' || str[i] > '9')
-			return (0);
-		i++;
+		if (!(*str >= '0' && *str <= '9'))
+			return (1);
 	}
-	return (1);
+	return (0);
 }
 
 int	duplicates(t_stack *a, long num)
 {
+	if (!a)
+		return (0);
 	while (a)
 	{
 		if (a->num == num)
@@ -47,26 +48,22 @@ int	check_args(int ac, char **av, t_stack **a)
 	int		i;
 	long	num;
 
-	if (ac == 2)
-	{
-		return (parse_array(av[1], a));
-	}
 	i = 1;
 	while (i < ac)
 	{
-		if (!valid_num(av[i]))
+		if (!error_syntax(av[i]))
 		{
 			ft_printf("Error.\n");
-			return (1);
+			return (0);
 		}
 		num = ft_atol(av[i]);
 		if (num > INT_MAX || num < INT_MIN)
 		{
 			ft_printf("Error.\n");
-			return (1);
+			return (0);
 		}
 		end_insert(a, num);
 		i++;
 	}
-	return (0);
+	return (1);
 }

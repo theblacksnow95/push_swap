@@ -1,46 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.c                                          :+:      :+:    :+:   */
+/*   free_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/30 15:07:37 by emurillo          #+#    #+#             */
-/*   Updated: 2025/02/10 18:14:57 by emurillo         ###   ########.fr       */
+/*   Created: 2025/02/10 17:20:49 by emurillo          #+#    #+#             */
+/*   Updated: 2025/02/10 18:13:25 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	print_stack_as(t_stack *tail)
+void	free_stack(t_stack **stack)
 {
-	t_stack		*curr;
+	t_stack		*temp;
+	t_stack		*current;
 
-	curr = tail;
-	while (curr != NULL)
+	if (!stack)
+		return ;
+	current = *stack;
+	while (current)
 	{
-		ft_printf("Node value: | %d |\n", curr->num);
-		curr = curr->next;
+		temp = current->next;
+		free(current);
+		current = temp;
 	}
+	*stack = NULL;
 }
 
-int	parse_array(char **argv, t_stack **a)
+
+void	free_array(char **argv)
 {
-	long	num;
 	int		i;
 
-	i = 0;
+	i = -1;
+	if (!argv || !*argv)
+		return ;
 	while (argv[i])
 	{
-		if (error_syntax(argv[i]))
-			error_free(a);
-		num = atol(argv[i]);
-		if (num > INT_MAX || num < INT_MIN)
-			error_free(a);
-		if (duplicates(*a, num))
-			error_free(a);
-		end_insert(a, (int)num);
+		free(argv[i]);
 		i++;
 	}
-	return (0);
+	free(argv - 1);
+}
+
+void	error_free(t_stack **a)
+{
+	free_stack(a);
+	write(2, "Error\n", 6);
+	exit(EXIT_FAILURE);
 }
