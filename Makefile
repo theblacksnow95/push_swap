@@ -1,6 +1,6 @@
 NAME = push_test
 CC = gcc
-SRC = src/parsing.c src/push_swap.c src/utils.c src/ft_atol.c src/checks_args.c src/free_stack.c
+SRC = src/parsing.c src/push_swap.c src/utils.c src/ft_atol.c src/checks_args.c src/error_handling.c
 LIBFT_DIR = lib/libft
 LIBFT_LIB = libft.a
 C_FLAGS = -Wall -Wextra -Werror -I$(LIBFT_DIR)

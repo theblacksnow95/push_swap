@@ -6,7 +6,7 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 11:57:16 by emurillo          #+#    #+#             */
-/*   Updated: 2025/02/10 18:10:16 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/02/11 16:46:01 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,11 @@ int	duplicates(t_stack *a, long num)
 {
 	if (!a)
 		return (0);
+	if (a->prev)
+	{
+		while (a->prev != NULL)
+			a = a->prev;
+	}
 	while (a)
 	{
 		if (a->num == num)
@@ -43,27 +48,3 @@ int	duplicates(t_stack *a, long num)
 	return (0);
 }
 
-int	check_args(int ac, char **av, t_stack **a)
-{
-	int		i;
-	long	num;
-
-	i = 1;
-	while (i < ac)
-	{
-		if (!error_syntax(av[i]))
-		{
-			ft_printf("Error.\n");
-			return (0);
-		}
-		num = ft_atol(av[i]);
-		if (num > INT_MAX || num < INT_MIN)
-		{
-			ft_printf("Error.\n");
-			return (0);
-		}
-		end_insert(a, num);
-		i++;
-	}
-	return (1);
-}

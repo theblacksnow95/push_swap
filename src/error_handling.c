@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_stack.c                                       :+:      :+:    :+:   */
+/*   error_handling.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 17:20:49 by emurillo          #+#    #+#             */
-/*   Updated: 2025/02/10 18:13:25 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/02/11 17:55:41 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,11 @@ void	free_stack(t_stack **stack)
 
 	if (!stack)
 		return ;
+	if ((*stack)->prev != NULL)
+	{
+		while ((*stack)->prev)
+			*stack = (*stack)->prev;
+	}
 	current = *stack;
 	while (current)
 	{
@@ -34,7 +39,7 @@ void	free_array(char **argv)
 {
 	int		i;
 
-	i = -1;
+	i = 0;
 	if (!argv || !*argv)
 		return ;
 	while (argv[i])
@@ -42,12 +47,15 @@ void	free_array(char **argv)
 		free(argv[i]);
 		i++;
 	}
-	free(argv - 1);
+	free(argv);
 }
 
-void	error_free(t_stack **a)
+void	error_free(t_stack **a, char **args, int check)
 {
-	free_stack(a);
+	if (a)
+		free_stack(a);
+	if (args)
+		free_array(args);
 	write(2, "Error\n", 6);
 	exit(EXIT_FAILURE);
 }
