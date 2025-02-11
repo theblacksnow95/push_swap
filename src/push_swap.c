@@ -6,7 +6,7 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 14:56:48 by emurillo          #+#    #+#             */
-/*   Updated: 2025/02/11 16:45:20 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/02/11 18:07:41 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ int	main(int ac, char **av)
 	}
 	else
 		parse_array(av + 1, &a, 0);
-	print_stack(a);
 	free_stack(&a);
 	return (0);
 }

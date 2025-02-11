@@ -6,7 +6,7 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 11:57:16 by emurillo          #+#    #+#             */
-/*   Updated: 2025/02/11 16:46:01 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/02/11 18:02:33 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	error_syntax(char *str)
 				|| (*str >= '0' && *str <= '9')))
 		return (1);
 	if ((*str == '-' || *str == '+') \
-		&& !(str[1] >= '0' && str[1] <= '9'))
+		&& !(ft_isdigit(str[1])))
 		return (1);
 	while (*++str)
 	{
