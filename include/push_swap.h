@@ -6,7 +6,7 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 13:56:54 by emurillo          #+#    #+#             */
-/*   Updated: 2025/02/11 16:46:55 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/02/12 17:22:42 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,17 @@
 # include <limits.h>
 # include "../lib/libft/libft.h"
 
-typedef struct Node
+typedef struct s_Node
 {
-	long int	num;
-	struct Node	*next;
-	struct Node	*prev;
-}				t_stack;
+	long int		num;
+	int				index;
+	int				push_cost;
+	bool			above_median;
+	bool			cheapest;
+	struct s_Node	*target;
+	struct s_Node	*next;
+	struct s_Node	*prev;
+}					t_stack;
 
 int			parse_array(char **argv, t_stack **list, int check_ac);
 void		end_insert(t_stack **root, int value);
@@ -37,6 +42,7 @@ void		error_free(t_stack **a, char **args, int check_ac);
 void		free_array(char **argv);
 void		free_stack(t_stack **stack);
 t_stack		*find_last(t_stack *stack);
+int			sorted(t_stack *stack);
 
 void		print_stack(t_stack *curr);
 

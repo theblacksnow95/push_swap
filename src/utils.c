@@ -6,7 +6,7 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 15:13:40 by emurillo          #+#    #+#             */
-/*   Updated: 2025/02/11 15:49:43 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/02/12 17:44:12 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,16 @@ t_stack	*find_last(t_stack *stack)
 void	end_insert(t_stack **head, int value)
 {
 	t_stack	*new_node;
+	t_stack	*last;
 
+	if (!head)
+		return ;
 	new_node = malloc(sizeof(t_stack));
 	if (new_node == NULL)
 		return ;
 	new_node->num = value;
 	new_node->next = NULL;
+	new_node->cheapest = 0;
 	if (!*head)
 	{
 		new_node->prev = *head;
@@ -53,8 +57,24 @@ void	end_insert(t_stack **head, int value)
 	}
 	else
 	{
-		new_node->prev = *head;
-		(*head)->next = new_node;
-		*head = new_node;
+		last = find_last(*head);
+		last->next = new_node;
+		new_node->prev = last;
 	}
+}
+
+int	sorted(t_stack *stack)
+{
+	t_stack *curr;
+
+	curr = stack;
+	if (!stack)
+		return (0);
+	while (curr->next)
+	{
+		if (curr->num > curr->next->num)
+			return (0);
+		curr = curr->next;
+	}
+	return (1);
 }

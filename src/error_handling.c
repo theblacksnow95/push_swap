@@ -6,7 +6,7 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 17:20:49 by emurillo          #+#    #+#             */
-/*   Updated: 2025/02/11 18:05:13 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/02/12 17:15:28 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	free_array(char **argv)
 
 void	error_free(t_stack **a, char **args, int check_c)
 {
-	if (a)
+	if (a && *a)
 		free_stack(a);
 	if (args && check_c == 1)
 		free_array(args);
