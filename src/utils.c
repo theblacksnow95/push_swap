@@ -6,11 +6,28 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 15:13:40 by emurillo          #+#    #+#             */
-/*   Updated: 2025/02/12 17:44:12 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/02/13 15:40:55 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+
+int	stack_len(t_stack *stack)
+{
+	int	count;
+	t_stack	*curr;
+
+	count = 0;
+	curr = stack;
+	if (!stack)
+		return (0);
+	while (curr)
+	{
+		curr = curr->next;
+		count++;
+	}
+	return (count);
+}
 
 void	start_insert(t_stack **tail, int value)
 {

@@ -6,7 +6,7 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 13:56:54 by emurillo          #+#    #+#             */
-/*   Updated: 2025/02/12 17:22:42 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/02/13 15:37:40 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,6 @@ t_stack		*find_last(t_stack *stack);
 int			sorted(t_stack *stack);
 
 void		print_stack(t_stack *curr);
+int			stack_len(t_stack *stack);
 
 #endif
