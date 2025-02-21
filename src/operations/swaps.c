@@ -6,7 +6,7 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 15:46:34 by emurillo          #+#    #+#             */
-/*   Updated: 2025/02/13 17:13:58 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/02/21 13:46:22 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	swap(t_stack **head)
 		second->next->prev = *head;
 	second->prev = NULL;
 	(*head)->prev = second;
-*head = second;
+	*head = second;
 }
 
 void	sa(t_stack **a, bool print)

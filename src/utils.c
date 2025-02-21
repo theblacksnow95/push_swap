@@ -6,7 +6,7 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 15:13:40 by emurillo          #+#    #+#             */
-/*   Updated: 2025/02/13 15:40:55 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/02/21 17:42:36 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	stack_len(t_stack *stack)
 {
-	int	count;
+	int		count;
 	t_stack	*curr;
 
 	count = 0;
@@ -37,6 +37,7 @@ void	start_insert(t_stack **tail, int value)
 	if (!new_node)
 		return ;
 	new_node->num = value;
+	new_node->index = 0;
 	new_node->prev = NULL;
 	new_node->next = *tail;
 	if (*tail != NULL)
@@ -66,6 +67,7 @@ void	end_insert(t_stack **head, int value)
 		return ;
 	new_node->num = value;
 	new_node->next = NULL;
+	new_node->index = 0;
 	new_node->cheapest = 0;
 	if (!*head)
 	{
@@ -82,7 +84,7 @@ void	end_insert(t_stack **head, int value)
 
 int	sorted(t_stack *stack)
 {
-	t_stack *curr;
+	t_stack	*curr;
 
 	curr = stack;
 	if (!stack)

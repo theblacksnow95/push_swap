@@ -1,51 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/13 17:14:06 by emurillo          #+#    #+#             */
-/*   Updated: 2025/02/21 14:14:26 by emurillo         ###   ########.fr       */
+/*   Created: 2025/02/21 13:47:11 by emurillo          #+#    #+#             */
+/*   Updated: 2025/02/21 16:40:36 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-void	push(t_stack **src, t_stack **dst)
+void	rotate(t_stack **stack)
 {
-	t_stack	*push_node;
+	t_stack	*last;
 
-	if (!*src)
+	if (!stack || !*stack || stack_len(*stack) == 1)
 		return ;
-	push_node = *src;
-	*src = (*src)->next;
-	if (*src)
-		(*src)->prev = NULL;
-	push_node->prev = NULL;
-	if (!*dst)
-	{
-		*dst = push_node;
-		push_node->next = NULL;
-	}
-	else
-	{
-		push_node->next = *dst;
-		(*dst)->prev = push_node;
-		*dst = push_node;
-	}
+	last = find_last(*stack);
+	last->next = *stack;
+	*stack = (*stack)->next;
+	last->next->prev = last;
+	last->next->next = NULL;
 }
 
-void	pa(t_stack **a, t_stack **b, bool check)
+void	ra(t_stack **a, bool check)
 {
-	push(a, b);
+	rotate(a);
 	if (!check)
-		write(1, "pa\n", 3);
+		write(1, "ra\n", 3);
 }
 
-void	pb(t_stack **a, t_stack **b, bool check)
+void	rb(t_stack **b, bool check)
 {
-	push(b, a);
+	rotate(b);
 	if (!check)
-		write(1, "pb\n", 3);
+		write(1, "rb\n", 3);
+}
+
+void	rr(t_stack **a, t_stack **b, bool check)
+{
+	rotate(a);
+	rotate(b);
+	if (!check)
+		write(1, "rr\n", 3);
 }

@@ -6,12 +6,32 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 11:57:16 by emurillo          #+#    #+#             */
-/*   Updated: 2025/02/11 18:02:33 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/02/21 17:32:45 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "../include/push_swap.h"
+
+void	set_index(t_stack *stack, int stack_len)
+{
+	t_stack	*max;
+	t_stack	*temp;
+
+	while (stack_len-- > 0)
+	{
+		max = NULL;
+		temp = stack;
+		while (temp)
+		{
+			if (!temp->index && (max == NULL || temp->num > max->num))
+				max = temp;
+			temp = temp->next;
+		}
+		if (max)
+			max->index = stack_len;
+	}
+}
 
 int	error_syntax(char *str)
 {

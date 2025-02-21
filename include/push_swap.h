@@ -6,7 +6,7 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 13:56:54 by emurillo          #+#    #+#             */
-/*   Updated: 2025/02/13 15:37:40 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/02/21 17:30:01 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ void		free_array(char **argv);
 void		free_stack(t_stack **stack);
 t_stack		*find_last(t_stack *stack);
 int			sorted(t_stack *stack);
+void		set_index(t_stack *stack, int stack_len);
 
 void		print_stack(t_stack *curr);
 int			stack_len(t_stack *stack);
