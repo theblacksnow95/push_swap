@@ -6,13 +6,13 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 15:46:34 by emurillo          #+#    #+#             */
-/*   Updated: 2025/02/21 13:46:22 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/02/22 13:43:45 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-void	swap(t_stack **head)
+static void	swap(t_stack **head)
 {
 	t_stack	*second;
 

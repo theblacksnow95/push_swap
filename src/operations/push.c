@@ -6,13 +6,13 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 17:14:06 by emurillo          #+#    #+#             */
-/*   Updated: 2025/02/21 14:14:26 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/02/22 13:43:05 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-void	push(t_stack **src, t_stack **dst)
+static void	push(t_stack **src, t_stack **dst)
 {
 	t_stack	*push_node;
 

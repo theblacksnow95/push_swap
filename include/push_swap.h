@@ -6,7 +6,7 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 13:56:54 by emurillo          #+#    #+#             */
-/*   Updated: 2025/02/21 17:30:01 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/02/22 14:18:47 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,23 @@ void		free_stack(t_stack **stack);
 t_stack		*find_last(t_stack *stack);
 int			sorted(t_stack *stack);
 void		set_index(t_stack *stack, int stack_len);
+int			find_biggest(t_stack *stack);
+int			find_bits(int max_idx);
+void		sort_stack(t_stack **a, t_stack **b);
 
 void		print_stack(t_stack *curr);
 int			stack_len(t_stack *stack);
+
+void		pa(t_stack **a, t_stack **b, bool check);
+void		pb(t_stack **a, t_stack **b, bool check);
+void		sa(t_stack **a, bool print);
+void		sb(t_stack **b, bool print);
+void		ss(t_stack **a, t_stack **b, bool print);
+void		ra(t_stack **a, bool check);
+void		rb(t_stack **b, bool check);
+void		rr(t_stack **a, t_stack **b, bool check);
+void		rra(t_stack **a, bool check);
+void		rrb(t_stack **b, bool check);
+void		rrr(t_stack **a, t_stack **b, bool check);
 
 #endif
