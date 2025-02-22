@@ -6,7 +6,7 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 17:14:06 by emurillo          #+#    #+#             */
-/*   Updated: 2025/02/22 13:43:05 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/02/22 16:52:17 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	push(t_stack **src, t_stack **dst)
 {
 	t_stack	*push_node;
 
-	if (!*src)
+	if (!src || !*src)
 		return ;
 	push_node = *src;
 	*src = (*src)->next;

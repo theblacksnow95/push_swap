@@ -52,7 +52,7 @@ $(LIBFT_DIR)/$(LIBFT_LIB):
 	(echo "Libft: $(RED)[KO]$(RESET)" && cat .error_log && rm -f .error_log && exit 1)
 
 clean:
-	rm -f $(OBJ) $(OPS_OBJ)
+	rm -rf $(OBJ_DIR)
 	@$(MAKE) -C $(LIBFT_DIR) clean >/dev/null 2>&1
 	@echo "Objects cleaned: $(GREEN)[OK]$(RESET)"
 

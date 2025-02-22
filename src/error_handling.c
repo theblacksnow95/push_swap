@@ -6,7 +6,7 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 17:20:49 by emurillo          #+#    #+#             */
-/*   Updated: 2025/02/12 17:15:28 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/02/22 15:59:01 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	free_stack(t_stack **stack)
 	t_stack		*temp;
 	t_stack		*current;
 
-	if (!stack)
+	if (!stack ||!*stack)
 		return ;
 	if ((*stack)->prev != NULL)
 	{

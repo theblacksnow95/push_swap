@@ -6,7 +6,7 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 13:02:28 by emurillo          #+#    #+#             */
-/*   Updated: 2025/02/22 14:58:35 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/02/22 17:08:39 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	sort_three(t_stack **stack)
 {
 	int	max;
 
+	if (!stack || !*stack || !(*stack)->next)
+		return ;
 	max = find_biggest(*stack);
 	if ((*stack)->index == max)
 		ra(stack, false);
@@ -49,21 +51,22 @@ void	radix_sort(t_stack **a, t_stack **b)
 	int	max_idx;
 	int	max_bits;
 	int	i;
-	int	j;
+	int	size;
 
+	if (!a || !*a || !b)
+		return ;
 	max_idx = find_biggest(*a);
 	max_bits = find_bits(max_idx);
 	i = 0;
 	while (i < max_bits)
 	{
-		j = 0;
-		while (j <= max_idx)
+		size = stack_len(*a);
+		while (size--)
 		{
 			if (((*a)->index >> i) & 1)
 				ra(a, false);
 			else
 				pb(a, b, false);
-			j++;
 		}
 		while (*b)
 			pa(a, b, false);
@@ -75,10 +78,12 @@ void	sort_stack(t_stack **a, t_stack **b)
 {
 	int	size;
 
+	if (!a || !*a || !b)
+		return ;
 	size = stack_len(*a);
-	if (size == 3)
+	if (size <= 3)
 		sort_three(a);
-	else if (size == 5)
+	else if (size <= 5)
 		sort_five(a, b);
 	else
 		radix_sort(a, b);

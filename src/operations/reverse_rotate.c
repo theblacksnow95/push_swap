@@ -6,7 +6,7 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 14:25:35 by emurillo          #+#    #+#             */
-/*   Updated: 2025/02/22 13:42:14 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/02/22 16:47:56 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,17 @@
 static void	reverse_rotate(t_stack **stack)
 {
 	t_stack	*last;
+	t_stack	*curr;
 
-	if (!stack || !*stack || stack_len(*stack) == 1)
+	if (!stack || !*stack || !(*stack)->next)
 		return ;
-	last = find_last(*stack);
+	curr = *stack;
+	last = find_last(curr);
 	last->prev->next = NULL;
-	last->next = *stack;
 	last->prev = NULL;
+	last->next = curr;
+	curr->prev = last;
 	*stack = last;
-	last->next->prev = last;
 }
 
 void	rra(t_stack **a, bool check)

@@ -6,7 +6,7 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 15:13:40 by emurillo          #+#    #+#             */
-/*   Updated: 2025/02/21 17:42:36 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/02/22 16:29:32 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int	stack_len(t_stack *stack)
 	curr = stack;
 	if (!stack)
 		return (0);
+	while (stack->prev)
+		stack = stack->prev;
 	while (curr)
 	{
 		curr = curr->next;

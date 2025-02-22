@@ -6,7 +6,7 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 14:56:48 by emurillo          #+#    #+#             */
-/*   Updated: 2025/02/22 14:59:11 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/02/22 16:59:34 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,11 @@ int	main(int ac, char **av)
 		parse_array(av + 1, &a, 0);
 	if (!sorted(a))
 	{
+		ft_printf("List not sorted.\n");
+		ft_printf("Stack len => (%d)\n", stack_len(a));
 		set_index(a, stack_len(a));
 		sort_stack(&a, &b);
 		print_stack(a);
-		ft_printf("List not sorted.\n");
 		ft_printf("Stack len => (%d)\n", stack_len(a));
 	}
 	free_stack(&a);

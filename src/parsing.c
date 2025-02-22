@@ -6,7 +6,7 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 15:07:37 by emurillo          #+#    #+#             */
-/*   Updated: 2025/02/22 15:08:46 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/02/22 16:22:31 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ void	print_stack(t_stack *tail)
 {
 	t_stack		*curr;
 
+	if (!tail)
+		return ;
 	curr = tail;
 	while (curr->prev != NULL)
-	{
 		curr = curr->prev;
-	}
 	while (curr != NULL)
 	{
 		ft_printf("Node value: | %d |\t --> index | %d |\n", \
