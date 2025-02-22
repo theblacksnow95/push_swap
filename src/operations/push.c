@@ -6,7 +6,7 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 17:14:06 by emurillo          #+#    #+#             */
-/*   Updated: 2025/02/22 16:52:17 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/02/22 17:18:25 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,14 @@ static void	push(t_stack **src, t_stack **dst)
 
 void	pa(t_stack **a, t_stack **b, bool check)
 {
-	push(a, b);
+	push(b, a);
 	if (!check)
 		write(1, "pa\n", 3);
 }
 
 void	pb(t_stack **a, t_stack **b, bool check)
 {
-	push(b, a);
+	push(a, b);
 	if (!check)
 		write(1, "pb\n", 3);
 }
