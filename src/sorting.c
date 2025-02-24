@@ -6,7 +6,7 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 13:02:28 by emurillo          #+#    #+#             */
-/*   Updated: 2025/02/22 17:08:39 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/02/24 14:49:48 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,7 @@ void	sort_three(t_stack **stack)
 
 void	sort_five(t_stack **a, t_stack **b)
 {
-	int	size;
-
-	size = stack_len(*a);
-	while (size--)
+	while (stack_len(*a) > 3)
 	{
 		if ((*a)->index == 0 || (*a)->index == 1)
 			pb(a, b, false);

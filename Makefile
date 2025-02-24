@@ -1,4 +1,4 @@
-NAME = push_test
+NAME = push_swap
 CC = gcc
 SRC = src/parsing.c src/push_swap.c src/utils.c src/ft_atol.c \
 	  src/checks_args.c src/error_handling.c src/sorting.c \
@@ -34,7 +34,7 @@ $(OPS_OBJ_DIR)/%.o: src/operations/%.c
 	(echo "$(GREEN)Compiled: $< [OK]$(RESET)") || \
 	(echo "$(RED)Error compiling: $< [KO]$(RESET)" && cat .error_log && rm -f .error_log && exit 1)
 
-TARGET = $(BIN_DIR)/push_test
+TARGET = $(BIN_DIR)/push_swap
 
 all: $(TARGET)
 

@@ -6,7 +6,7 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 15:13:40 by emurillo          #+#    #+#             */
-/*   Updated: 2025/02/22 16:29:32 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/02/24 14:52:33 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ t_stack	*find_last(t_stack *stack)
 	return (stack);
 }
 
-
 void	end_insert(t_stack **head, int value)
 {
 	t_stack	*new_node;
@@ -70,7 +69,6 @@ void	end_insert(t_stack **head, int value)
 	new_node->num = value;
 	new_node->next = NULL;
 	new_node->index = 0;
-	new_node->cheapest = 0;
 	if (!*head)
 	{
 		new_node->prev = *head;

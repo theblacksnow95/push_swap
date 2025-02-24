@@ -6,7 +6,7 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 13:56:54 by emurillo          #+#    #+#             */
-/*   Updated: 2025/02/22 14:18:47 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/02/24 09:11:12 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,6 @@ typedef struct s_Node
 {
 	long int		num;
 	int				index;
-	int				push_cost;
-	bool			above_median;
-	bool			cheapest;
-	struct s_Node	*target;
 	struct s_Node	*next;
 	struct s_Node	*prev;
 }					t_stack;

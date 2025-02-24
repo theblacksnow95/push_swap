@@ -6,10 +6,9 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 11:57:16 by emurillo          #+#    #+#             */
-/*   Updated: 2025/02/21 17:32:45 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/02/24 14:53:00 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "../include/push_swap.h"
 
@@ -67,4 +66,3 @@ int	duplicates(t_stack *a, long num)
 	}
 	return (0);
 }
-
